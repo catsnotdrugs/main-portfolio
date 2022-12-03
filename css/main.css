@@ -657,6 +657,10 @@ nav ul {
   max-width: 100%
 }
 
+* {
+  border: solid 1px green;
+}
+
 .contact-form-div {
   max-width: 840px;
 }
@@ -997,11 +1001,22 @@ textarea::placeholder {
 }
 
 /* Portfolio Section */
-@media (max-width: 1400px) {
+@media (max-width: 1440px) and (min-width: 1025px) {
+  .left-portfolio-text {
+    padding-right: 5em;
+  }
 
+  .right-portfolio-text {
+    padding-left: 5em;
+  }
 }
 
+@media (max-width: 1200px) {
+  .portfolio-text {
+    font-size: 1.125em;
+  }
+}
 
+@media (max-width: 1024px) {
 
-
-
+}
