@@ -604,8 +604,8 @@ nav ul {
 
 #projects-div {
   max-width: 1920px;
-  margin-left: calc(5em + 50px);
-  margin-right: 5em;
+  padding-left: calc(5em + 50px);
+  padding-right: 5em;
 }
 
 .portfolio-div {
@@ -1017,6 +1017,63 @@ textarea::placeholder {
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1024px) and (min-width: 834px) {
 
+  #projects-div {
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+  }
+
+  .portfolio-column {
+    padding-left: 50px;
+  }
+
+  .right-portfolio-text {
+    padding-left: 4em;
+  }
+
+    .left-portfolio-text {
+        padding-right: 4em;
+    }
+}
+
+@media (max-width: 833px) {
+  .portfolio-div {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #projects-div {
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+  }
+
+  .inner-portfolio-div {
+    width: 100%;
+  }
+
+  .left-portfolio-text {
+    padding-right: 0;
+    padding-left: 50px;
+  }
+  .right-portfolio-text {
+    padding-left: 50px;
+  }
+
+  .column-reverse {
+    flex-direction: column-reverse;
+  }
+}
+
+
+@media (max-width: 767px) {
+  #projects-div {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  .portfolio-column {
+    margin-bottom: 4em;
+  }
 }
