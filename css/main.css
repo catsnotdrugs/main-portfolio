@@ -401,27 +401,45 @@ nav ul {
   margin-bottom: 66px;
 }
 
-.pink-heading {
+.pink-heading, .pink-heading-left {
   color: var(--pink-neon);
   font-size: 1.5em;
   font-weight: 400;
-  margin-bottom: 12px;
+  margin-bottom: .8em;
   position: relative;
 }
 
 .pink-center {
-  margin-right: -40px;
 }
+
+
 
 .pink-heading:before {
   content: "";
   display: block;
-  width: 40px;
-  height: 3px;
+  width: 33%;
+  height: 2px;
   background: var(--pink-neon);
-  left: -50px;
-  top: 50%;
+  left: 0;
+  right: 0;
+  bottom: -6px;
   position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.pink-heading-left:before {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 2px;
+  background: var(--pink-neon);
+  left: 0;
+  bottom: -6px;
+  position: absolute;
+  margin-left: auto;
+  text-align: center;
 }
 
 .white-heading {
@@ -451,7 +469,7 @@ nav ul {
 
 #about-div {
   max-width: 100%;
-  padding-left: calc(5em + 50px);
+  padding-left: 5em;
   padding-right: 5em;
 }
 
@@ -468,7 +486,7 @@ nav ul {
 
 #about-text {
   color: var(--white);
-  font-size: 1.5em;
+  font-size: 1.25em;
   font-weight: 400;
 }
 
@@ -596,7 +614,7 @@ nav ul {
 }
 
 .service-text {
-  font-size: 1.115em;
+  font-size: 1.25em;
   font-weight: 400;
   color: var(--white);
   text-align: center;
@@ -604,7 +622,7 @@ nav ul {
 
 #projects-div {
   max-width: 1920px;
-  padding-left: calc(5em + 50px);
+  padding-left: 5em;
   padding-right: 5em;
 }
 
@@ -641,7 +659,7 @@ nav ul {
 }
 
 .portfolio-text {
-  font-size: 1.5em;
+  font-size: 1.25em;
   font-weight: 400;
   color: var(--white);
 }
@@ -657,9 +675,6 @@ nav ul {
   max-width: 100%
 }
 
-* {
-  border: solid 1px green;
-}
 
 .contact-form-div {
   max-width: 840px;
@@ -870,6 +885,11 @@ textarea::placeholder {
 
 }
 
+@media (max-width: 1024px) {
+  #about-text, .service-text {
+    font-size: 1.125em;
+  }
+}
 @media (min-width: 768px) and (max-width: 1024px) {
   #about-info-div {
     flex-direction: column;
@@ -887,8 +907,8 @@ textarea::placeholder {
     flex-direction: column;
     justify-content: flex-start;
     width: 100%;
-    padding-left: calc(1.5em + 50px);
-    padding-right: calc(1.5em );
+    padding-left: 1.5em;
+    padding-right: 1.5em;
   }
 }
 
@@ -931,7 +951,7 @@ textarea::placeholder {
     }
 
     #left-about-info-div, #right-about-info-div {
-      padding-left: calc(1em + 50px);
+      padding-left: 1em;
       padding-right: 1em;
     }
 
@@ -1024,9 +1044,6 @@ textarea::placeholder {
     padding-right: 1.5em;
   }
 
-  .portfolio-column {
-    padding-left: 50px;
-  }
 
   .right-portfolio-text {
     padding-left: 4em;
@@ -1049,16 +1066,38 @@ textarea::placeholder {
     padding-right: 1.5em;
   }
 
+  .portfolio-text-div {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .portfolio-heading::before {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: var(--pink-neon);
+    left: 0;
+    right: 0;
+    bottom: -6px;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+
   .inner-portfolio-div {
     width: 100%;
   }
 
   .left-portfolio-text {
     padding-right: 0;
-    padding-left: 50px;
+    padding-left: 0;
   }
   .right-portfolio-text {
-    padding-left: 50px;
+    padding-left: 0;
   }
 
   .column-reverse {
@@ -1075,5 +1114,27 @@ textarea::placeholder {
 
   .portfolio-column {
     margin-bottom: 4em;
+  }
+}
+
+/* Contact Section */
+@media (max-width: 870px) {
+  #contact-div {
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+  }
+}
+
+@media (max-width: 767px) {
+  #contact-div {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  #name-email-div {
+    flex-direction: column;
+    gap: 2.5em;
   }
 }
