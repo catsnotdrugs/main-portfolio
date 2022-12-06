@@ -455,6 +455,7 @@ nav ul {
   justify-content: center;
   align-items: flex-start;
   padding-right: 4em;
+  gap: 50px;
 }
 
 #right-about-info-div {
@@ -463,6 +464,7 @@ nav ul {
   justify-content: flex-start;
   align-items: flex-start;
   padding-left: 5em;
+  gap: 50px;
 }
 
 #about-div {
@@ -712,12 +714,26 @@ nav ul {
 .contact-input {
   background-color: transparent;
   border: none;
-  border-bottom: 2px solid var(--dark-grey);
+  border-bottom: 2px solid var(--white);
+  color: var(--pink-neon);
+  font-size: 1.25em;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+}
+
+
+.contact-input:focus {
+  outline: none;
+  border-bottom: 2px solid var(--pink-neon);
+  color: var(--pink-neon);
 }
 
 .contact-message {
   width: 100%;
   margin-bottom: 4.5em;
+  font-size: 1.25em;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
 }
 
 input {
@@ -726,7 +742,7 @@ input {
 
 input::placeholder {
   font-family: 'Raleway', sans-serif;
-  color: var(--dark-grey);
+  color: var(--white);
   font-size: 1.25em;
   font-weight: 400;
 
@@ -734,7 +750,7 @@ input::placeholder {
 
 textarea::placeholder {
   font-family: 'Raleway', sans-serif;
-  color: var(--dark-grey);
+  color: var(--white);
   font-size: 1.125em;
   font-weight: 400;
 
@@ -880,6 +896,12 @@ textarea::placeholder {
 }
 
 /* About Me */
+
+@media (max-width: 1399px) {
+  #left-about-info-div, #right-about-info-div {
+    gap: 0;
+  }
+}
 @media (min-width: 1025px) and (max-width: 1399px) {
   #left-about-info-div, #right-about-info-div {
     flex-direction: column;
@@ -928,7 +950,7 @@ textarea::placeholder {
   }
 }
 
-  @media (min-width: 200px) and (max-width: 767px) {
+  @media (max-width: 767px) {
     .section-div {
       padding-top: 120px;
       padding-bottom: 120px;
@@ -939,19 +961,20 @@ textarea::placeholder {
       /*padding-right: 1em;*/
       /*padding-left: calc(1em + 20px);*/
       gap: 60px;
+      max-width: 500px;
     }
 
     #about-div {
-      padding-left: 0;
-      padding-right: 0;
+      padding-left: 1.5em;
+      padding-right: 1.5em;
     }
 
     #left-about-info-div, #right-about-info-div {
       flex-direction: column;
       justify-content: flex-start;
       width: 100%;
-      padding-left: calc(1em + 20px);
-      padding-right: calc(1em + 20px);
+      padding-left: 0;
+      padding-right: 0;
     }
 
     #about-text {
@@ -966,10 +989,6 @@ textarea::placeholder {
       font-size: 2.5em;
     }
 
-    #left-about-info-div, #right-about-info-div {
-      padding-left: 1em;
-      padding-right: 1em;
-    }
 
   }
 
