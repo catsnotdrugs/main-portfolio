@@ -80,6 +80,25 @@ nav {
     background-color: var(--blue-bg);
     z-index: 10;
 }
+.animate__delay-\.25s {
+    animation-delay: 0.25s;
+}
+.animate__delay-\.4s {
+    animation-delay: 0.4s;
+}
+
+.animate__delay-\.5s {
+    animation-delay: 0.5s;
+}
+
+.animate__delay-\.6s {
+    animation-delay: 0.6s;
+}
+
+.animate__delay-\.75s {
+    animation-delay: 0.75s;
+}
+
 
 /* Main logo in header */
 #main-logo {
@@ -333,11 +352,6 @@ nav ul {
 
 }
 
-.animate__bounceInLeft {
-    -webkit-animation: bounceInRight 0.75s both;
-    animation: bounceInRight 1.25s both;
-
-}
 
 
 
