@@ -756,6 +756,10 @@ textarea::placeholder {
 
 }
 
+.recaptcha {
+  margin-bottom: 1em;
+}
+
 #footer-div {
   padding-top: 6.75em;
   padding-bottom: 1em;
