@@ -389,7 +389,8 @@ nav ul {
     font-size: 1.5em;
     font-weight: 400;
     color: var(--white);
-    margin-bottom: .2em;
+    margin-bottom: 1em;
+
 }
 
 .button {
