@@ -21,3 +21,4 @@ document.getElementById("slide-out-nav-menu").classList.add('slide-in-top');
   document.getElementById("slide-out-nav-menu").classList.remove('slide-out-top');
   document.getElementById("slide-out-nav-menu").style.display = "flex";
 }
+

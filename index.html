@@ -14,6 +14,8 @@
     />
     <script src="js/main.js"></script>
 
+
+
 </head>
 <body>
 <nav id="main-nav-bar">
@@ -58,7 +60,8 @@
             <p id="about-me" class="animate__animated animate__fadeInRight animate__delay-.5s">I am a web & app developer with a passion for creating beautiful and functional websites & apps.
                 I love coming up with ideas and turning them into a reality. I'm always looking for new challenges and ways to
                 improve my skills. I like to create experiences that are both engaging and useful to people.</p>
-            <button onclick="location.href='#about-div'" class="button" id="home-btn" type="button">ABOUT ME</button>
+            <button onclick="location.href='#about-div'" class="button animate__jackInTheBox animate__animated animate__delay-.75s" id="home-btn" type="button">ABOUT ME</button>
+
         </div>
     </div>
 </div>
@@ -66,7 +69,7 @@
 <!--About Section-->
 <div id="about-div" class="section-div">
     <div class="title-div">
-        <h2 class="pink-heading pink-center" id="get-to-know-me">
+        <h2 class="pink-heading pink-center animate__backInUp animate__animated animate__delay-.5s" id="get-to-know-me">
             Get to Know Me
         </h2>
         <h3 class='white-heading' id="about-heading">ABOUT</h3>
@@ -235,7 +238,7 @@
         <h3 class='white-heading' id="contact-heading">CONTACT</h3>
     </section>
     <section class="contact-form-div">
-        <form class="contact-form" method="POST" data-netlify-recaptcha="true" data-netlify="true" action="/">
+        <form class="contact-form" method="POST" data-netlify="true" action="/">
             <div class="form-div" id="name-email-div">
                 <input class="contact-input _50-percent" type="text" name="name" placeholder="Your Name" required>
                 <input class="contact-input _50-percent" type="email" name="email" placeholder="Your Email" required>
@@ -244,7 +247,6 @@
         <textarea class="contact-message contact-input" name="message" placeholder="Your Message" rows="4"
                   cols="100%"></textarea>
             </label>
-            <div class="recaptcha" data-netlify-recaptcha="true"></div>
             <button class="button" type="submit">Send</button>
         </form>
     </section>
