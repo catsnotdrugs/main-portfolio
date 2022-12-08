@@ -220,6 +220,11 @@ nav ul {
     height: 32px;
 }
 
+#hamburger-button {
+    background-color: transparent;
+    border: none;
+}
+
 #hamburger-icon:hover {
     cursor: pointer;
 }
