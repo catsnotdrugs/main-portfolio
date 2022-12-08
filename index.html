@@ -16,15 +16,15 @@
 </head>
 <body>
 <nav id="main-nav-bar">
-    <a href="#"><img id="main-logo" src="img/chris-williams-logo.svg" alt=""></a>
+    <a href="#" aria-label="Return to the top of the page"><img id="main-logo" src="img/chris-williams-logo.svg" alt=""></a>
     <ul id="main-nav" class="nav-menu">
-        <li><a id="home" class="menu-nav" href="#">Home</a></li>
+        <li><a id="home" class="menu-nav" href="#" aria-label="Return to the top of the page">Home</a></li>
         <li><a id="about" class="menu-nav" href="#about-div">About</a></li>
         <li><a id="projects" class="menu-nav" href="#projects-div">Projects</a></li>
         <li><a id="contact" class="menu-nav" href="#contact-div">Contact</a></li>
     </ul>
     <div id="hamburger-menu-div">
-        <button id="hamburger-button" onClick="openNav()">
+        <button id="hamburger-button" onClick="openNav()" type="button">
             <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                 <path
                         d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/>
@@ -32,12 +32,12 @@
         </button>
     </div>
     <div id="slide-out-nav-menu" class="side-nav">
-        <a class="close-btn" onClick="closeNav()">
+        <button type="button" class="close-btn" onClick="closeNav()">
             <svg id="close-btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
                 <path
                         d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/>
             </svg>
-        </a>
+        </button>
         <a href="#home-div" onclick="closeNav()">Home</a>
         <a href="#about-div" onclick="closeNav()">About</a>
         <a href="#projects-div" onclick="closeNav()">Projects</a>
@@ -285,7 +285,7 @@
     </section>
 </div>
 <div id="footer-div">
-    <a href="#"><img id="main-logo-footer" src="img/chris-williams-logo.svg" alt=""></a>
+    <a href="#" aria-label="Return to the top of the page"><img id="main-logo-footer" src="img/chris-williams-logo.svg" alt=""></a>
     <h2 class="grey-heading">Chris Williams</h2>
     <a href="mailto:chris@imchriswilliams.com" class="contact-button-link">
         <svg id="email-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
