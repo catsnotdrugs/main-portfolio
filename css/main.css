@@ -103,7 +103,7 @@ nav {
 /* Main logo in header */
 #main-logo {
     width: 90px;
-    height: auto;
+    height: 100%;
     -webkit-animation: rotate-scale-down-diag-1s linear both;
     animation: rotate-scale-down-diag-1 1s linear both;
 }
@@ -805,7 +805,7 @@ textarea::placeholder {
 
 #main-logo-footer {
     height: 100px;
-    width: auto;
+    width: 100%;
 }
 
 .grey-heading {
