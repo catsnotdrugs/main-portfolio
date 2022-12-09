@@ -705,6 +705,7 @@ nav ul {
     max-width: 800px;
     width: 100%;
     height: auto;
+    max-height: 100%;
 }
 
 .left-port-text, .right-port-text {
