@@ -539,7 +539,7 @@ nav ul {
 
 
 #services-div {
-    background-color: var(--blue-bg-light);
+    background-color: var(--blue-bg);
     max-width: 100%
 }
 
@@ -717,7 +717,7 @@ nav ul {
 
 
 #contact-div {
-    background-color: var(--blue-bg-light);
+    background-color: var(--blue-bg);
     max-width: 100%
 }
 
@@ -832,7 +832,7 @@ textarea::placeholder {
 
 #email-icon {
     fill: var(--pink-neon);
-    height: 1em;
+    height: 1.5em;
     width: auto;
     position: relative;
     bottom: -3px;
