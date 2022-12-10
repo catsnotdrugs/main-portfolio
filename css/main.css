@@ -539,7 +539,7 @@ nav ul {
 
 
 #services-div {
-    background-color: #10192B;
+    background-color: var(--blue-bg);
     max-width: 100%
 }
 
@@ -718,7 +718,7 @@ nav ul {
 
 
 #contact-div {
-    background-color: #10192B;
+    background-color: var(--blue-bg);
     max-width: 100%
 }
 
@@ -778,7 +778,7 @@ input {
 input::placeholder {
     font-family: 'Raleway', sans-serif;
     color: var(--white);
-    font-size: .9em;
+    font-size: 1.25em;
     font-weight: 400;
     opacity: 1;
 
@@ -787,7 +787,7 @@ input::placeholder {
 textarea::placeholder {
     font-family: 'Raleway', sans-serif;
     color: var(--white);
-    font-size: .9em;
+    font-size: 1.25em;
     font-weight: 400;
     opacity: 1;
 
