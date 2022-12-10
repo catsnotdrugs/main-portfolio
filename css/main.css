@@ -777,7 +777,7 @@ input {
 
 input::placeholder {
     font-family: 'Raleway', sans-serif;
-    color: var(--white);
+    color: var(--off-white);
     font-size: 1.25em;
     font-weight: 400;
     opacity: 1;
@@ -786,7 +786,7 @@ input::placeholder {
 
 textarea::placeholder {
     font-family: 'Raleway', sans-serif;
-    color: var(--white);
+    color: var(--off-white);
     font-size: 1.25em;
     font-weight: 400;
     opacity: 1;
