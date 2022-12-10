@@ -1,27 +1,33 @@
 :root {
     /* Default */
-    --pink: #F74B71;
     --blue-bg: #131F34;
-    --blue-bg-light: #152136;
-    --blue-light: #112138;
-    --blue-dark: #0E1F35;
-    --blue-lighter: #152740;
     --blue-div-bg: #19273E;
-    --dark-grey-text: #8A909B;
     --dark-grey: #4B5561;
     --white: #ffffff;
     --off-white: #F5F5F5;
-    --image-outline: #A1A5AD;
-    --grey-text: #B8BBC2;
-
-    /* Black Blue Neon */
-    --purple-neon: #6B59E4;
+    --pink-neon: #F23E67;
     --blue-neon: #2B67EB;
     --dark-purple-neon: #2853F0;
-    --pink-neon: #F23E67;
+
+
+    /* Default not used */
+    --purple-neon: #6B59E4;
     --black-neon: #252525;
+    --blue-bg-light: #152136;
+
+    /* In Use */
+    --background: #131F34;
+    --service-div-background: #19273E;
+    --button-outline: #4B5561;
+    --text: #ffffff;
+    --text-light: #F5F5F5;
+    --accent-color: #F23E67;
+    --accent-color-2: #2B67EB;
+    --accent-color-3: #2853F0;
 
 }
+
+
 
 
 * {
@@ -33,7 +39,7 @@
 
 
 body {
-    background-color: var(--blue-bg)
+    background-color: var(--background)
 }
 
 h1 {
@@ -77,7 +83,7 @@ nav {
     top: 0;
     left: 0;
     right: 0;
-    background-color: var(--blue-bg);
+    background-color: var(--background);
     z-index: 10;
 }
 .animate__delay-\.25s {
@@ -152,12 +158,12 @@ nav {
     font-size: 1.25em;
     font-weight: 500;
     text-decoration: none;
-    color: var(--off-white);
+    color: var(--text-light);
 }
 
 #main-nav a:hover {
     font-weight: 500;
-    background: linear-gradient(90deg, var(--dark-purple-neon) 0%, var(--blue-neon) 50%, var(--pink-neon) 100%);
+    background: linear-gradient(90deg, var(--accent-color-3) 0%, var(--accent-color-2) 50%, var(--accent-color) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -188,7 +194,7 @@ nav ul {
     left: 0;
     height: 400px;
     z-index: 0;
-    background-color: var(--blue-bg);
+    background-color: var(--background);
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -202,12 +208,12 @@ nav ul {
     font-size: 1.25em;
     font-weight: 500;
     text-decoration: none;
-    color: var(--off-white);
+    color: var(--text-light);
     margin-bottom: .5em;
 }
 
 .side-nav a:hover {
-    color: var(--pink-neon);
+    color: var(--accent-color);
 }
 
 #hamburger-menu-div {
@@ -215,7 +221,7 @@ nav ul {
 }
 
 #hamburger-icon, #hamburger-button {
-    fill: var(--pink-neon);
+    fill: var(--accent-color);
     width: 32px;
     height: 32px;
 }
@@ -270,11 +276,11 @@ nav ul {
 }
 
 #close-btn-icon {
-    fill: var(--pink-neon);
+    fill: var(--accent-color);
 }
 
 #close-btn-icon:hover {
-    fill: var(--blue-neon);
+    fill: var(--accent-color-2);
     cursor: pointer;
 }
 
@@ -377,14 +383,14 @@ nav ul {
 }
 
 #home-subtitle {
-    color: var(--pink-neon);
+    color: var(--accent-color);
     font-size: 1.5em;
 }
 
 #name {
     font-size: 4.5em;
     font-weight: 700;
-    color: var(--white);
+    color: var(--text);
     line-height: 1;
     margin-top: .15em;
     margin-bottom: .2em;
@@ -393,7 +399,7 @@ nav ul {
 #about-me {
     font-size: 1.5em;
     font-weight: 400;
-    color: var(--white);
+    color: var(--text);
     margin-bottom: 1em;
 
 }
@@ -401,16 +407,16 @@ nav ul {
 .button {
     height: 50px !important;
     border-radius: 4px;
-    border: solid 2px var(--dark-grey);
+    border: solid 2px var(--button-outline);
     background-color: transparent;
     padding: 0 38px;
-    color: var(--white);
+    color: var(--text);
     max-width: 200px;
 }
 
 .button:hover {
-    background-color: var(--pink-neon);
-    border: solid 2px var(--pink-neon);
+    background-color: var(--accent-color);
+    border: solid 2px var(--accent-color);
     cursor: pointer;
 }
 
@@ -436,7 +442,7 @@ nav ul {
 }
 
 .pink-heading, .pink-heading-left {
-    color: var(--pink-neon);
+    color: var(--accent-color);
     font-size: 1.5em;
     font-weight: 400;
     position: relative;
@@ -452,7 +458,7 @@ nav ul {
 /*  display: block;*/
 /*  width: 33%;*/
 /*  height: 2px;*/
-/*  background: var(--pink-neon);*/
+/*  background: var(--accent-color);*/
 /*  left: 0;*/
 /*  right: 0;*/
 /*  bottom: -6px;*/
@@ -467,7 +473,7 @@ nav ul {
 /*  display: block;*/
 /*  width: 30px;*/
 /*  height: 2px;*/
-/*  background: var(--pink-neon);*/
+/*  background: var(--accent-color);*/
 /*  left: 0;*/
 /*  bottom: -6px;*/
 /*  position: absolute;*/
@@ -476,7 +482,7 @@ nav ul {
 /*}*/
 
 .white-heading {
-    color: var(--white);
+    color: var(--text);
     font-size: 4.35em;
     font-weight: 600;
     line-height: 1;
@@ -518,7 +524,7 @@ nav ul {
 
 
 #about-text {
-    color: var(--white);
+    color: var(--text);
     font-size: 1.25em;
     font-weight: 400;
 }
@@ -530,16 +536,16 @@ nav ul {
 }
 
 .skills-btn {
-    border: 2px solid var(--dark-grey);
+    border: 2px solid var(--button-outline);
     border-radius: 4px;
     background-color: transparent;
     padding: .75em 1.25em;
-    color: var(--white);
+    color: var(--text);
 }
 
 
 #services-div {
-    background-color: var(--blue-bg);
+    background-color: var(--background);
     max-width: 100%
 }
 
@@ -558,7 +564,7 @@ nav ul {
     flex-direction: column;
     max-width: 400px;
     width: 100%;
-    background-color: var(--blue-div-bg);
+    background-color: var(--service-div-background);
     padding: 70px 58px 70px 58px;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
@@ -567,7 +573,7 @@ nav ul {
 }
 
 .service-div:hover {
-    background-color: var(--blue-bg-light);
+    background-color: var(--background-light);
     box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
     -webkit-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
@@ -575,7 +581,7 @@ nav ul {
 }
 
 .service-div:hover .service-headings {
-    color: var(--pink-neon);
+    color: var(--accent-color);
 }
 
 .service-div:hover .service-svg {
@@ -627,7 +633,7 @@ nav ul {
 }
 
 .service-svg {
-    fill: var(--pink-neon);
+    fill: var(--accent-color);
     height: 64px;
     width: auto;
     color: red;
@@ -637,7 +643,7 @@ nav ul {
 .service-headings {
     font-size: 1.5em;
     font-weight: 600;
-    color: var(--white);
+    color: var(--text);
     margin-bottom: .75em;
     text-align: center;
 }
@@ -649,7 +655,7 @@ nav ul {
 .service-text {
     font-size: 1.25em;
     font-weight: 400;
-    color: var(--white);
+    color: var(--text);
     text-align: center;
 }
 
@@ -698,7 +704,7 @@ nav ul {
 .portfolio-text {
     font-size: 1.25em;
     font-weight: 400;
-    color: var(--white);
+    color: var(--text);
 }
 
 .portfolio-image {
@@ -718,7 +724,7 @@ nav ul {
 
 
 #contact-div {
-    background-color: var(--blue-bg);
+    background-color: var(--background);
     max-width: 100%
 }
 
@@ -749,8 +755,8 @@ nav ul {
 .contact-input {
     background-color: transparent;
     border: none;
-    border-bottom: 2px solid var(--white);
-    color: var(--pink-neon);
+    border-bottom: 2px solid var(--text);
+    color: var(--accent-color);
     font-size: 1.25em;
     font-family: 'Raleway', sans-serif;
     font-weight: 500;
@@ -759,8 +765,8 @@ nav ul {
 
 .contact-input:focus {
     outline: none;
-    border-bottom: 2px solid var(--pink-neon);
-    color: var(--pink-neon);
+    border-bottom: 2px solid var(--accent-color);
+    color: var(--accent-color);
 }
 
 .contact-message {
@@ -777,7 +783,7 @@ input {
 
 input::placeholder {
     font-family: 'Raleway', sans-serif;
-    color: var(--off-white);
+    color: var(--text-light);
     font-size: 1.25em;
     font-weight: 400;
     opacity: 1;
@@ -786,7 +792,7 @@ input::placeholder {
 
 textarea::placeholder {
     font-family: 'Raleway', sans-serif;
-    color: var(--off-white);
+    color: var(--text-light);
     font-size: 1.25em;
     font-weight: 400;
     opacity: 1;
@@ -811,15 +817,10 @@ textarea::placeholder {
     width: 100%;
 }
 
-.grey-heading {
-    color: var(--grey-text);
-    font-size: 1.5em;
-    font-weight: 600;
-    margin-bottom: .25em;
-}
+
 
 .contact-button-link {
-    color: var(--pink-neon);
+    color: var(--accent-color);
     font-family: 'raleway', sans-serif;
     font-size: 1.15em;
     font-weight: 300;
@@ -832,7 +833,7 @@ textarea::placeholder {
 }
 
 #email-icon {
-    fill: var(--pink-neon);
+    fill: var(--accent-color);
     height: 1.5em;
     width: auto;
     position: relative;
@@ -840,7 +841,7 @@ textarea::placeholder {
 }
 
 .footer-text {
-    color: var(--white);
+    color: var(--text);
     font-size: .85em;
     font-weight: 300;
 }
