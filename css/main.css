@@ -71,6 +71,8 @@ button {
     font-family: 'Raleway', sans-serif !important;
     font-weight: 600;
     font-size: 1.25em;
+    background-color: transparent;
+    border: none;
 }
 
 nav {
@@ -222,7 +224,7 @@ nav ul {
 
 #hamburger-icon, #hamburger-button {
     fill: var(--accent-color);
-    width: 32px;
+    width: auto;
     height: 32px;
 }
 
@@ -419,6 +421,7 @@ nav ul {
     border: solid 2px var(--accent-color);
     cursor: pointer;
 }
+
 
 
 .section-div {
@@ -846,6 +849,9 @@ textarea::placeholder {
     font-weight: 300;
 }
 
+.name-footer {
+    color: var(--pink-neon);
+}
 
 /* Responsive Stuff */
 
