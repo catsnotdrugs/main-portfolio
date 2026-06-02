@@ -63,22 +63,44 @@ async function login() {
     throw new Error(`login HTTP ${res.status}: ${text.slice(0, 200)}`);
   }
   const data = await res.json();
-  const token = data?.golfer_user?.golfer_user_token ?? data?.token;
-  if (!token) throw new Error("no session token in login response");
-  return token;
+  // For diagnostics in CI, show the top-level shape.
+  console.log("[handicap] login keys:", Object.keys(data ?? {}).join(","));
+  if (data?.golfer_user) {
+    console.log("[handicap] golfer_user keys:", Object.keys(data.golfer_user).join(","));
+  }
+  return data;
 }
 
-async function fetchHandicap(sessionToken) {
-  const res = await fetch(`${API}/golfers/${ghin}.json`, {
+function extractHandicap(login) {
+  // The login response carries the golfer's profile. Try the obvious paths.
+  const candidates = [
+    login?.golfer_user?.handicap_index,
+    login?.golfer_user?.HandicapIndex,
+    login?.golfer?.handicap_index,
+    login?.golfers?.[0]?.handicap_index,
+    login?.handicap_index,
+  ];
+  for (const value of candidates) {
+    if (value !== undefined && value !== null) return String(value);
+  }
+  return null;
+}
+
+async function fetchHandicap(login, sessionToken) {
+  const fromLogin = extractHandicap(login);
+  if (fromLogin) return fromLogin;
+
+  // Fall back to the golfers/search endpoint with the session token.
+  const res = await fetch(`${API}/golfers/search.json?golfer_id=${ghin}`, {
     headers: {
       ...BROWSER_HEADERS,
       "Authorization": `Bearer ${sessionToken}`,
-      "Content-Type": "application/json",
     },
   });
-  if (!res.ok) throw new Error(`golfer HTTP ${res.status}`);
+  if (!res.ok) throw new Error(`golfer-search HTTP ${res.status}`);
   const data = await res.json();
-  const golfer = data?.golfer ?? data?.golfers?.[0] ?? data;
+  console.log("[handicap] search keys:", Object.keys(data ?? {}).join(","));
+  const golfer = data?.golfers?.[0] ?? data?.golfer ?? data;
   const index =
     golfer?.handicap_index ??
     golfer?.HandicapIndex ??
@@ -97,8 +119,12 @@ if (!email || !password) {
 }
 
 try {
-  const sessionToken = await login();
-  const index = await fetchHandicap(sessionToken);
+  const loginResponse = await login();
+  const sessionToken =
+    loginResponse?.golfer_user?.golfer_user_token ??
+    loginResponse?.token ??
+    "";
+  const index = await fetchHandicap(loginResponse, sessionToken);
   const payload = { index, updated: today(), source: "ghin" };
   await writeFile(OUTPUT, JSON.stringify(payload, null, 2) + "\n", "utf8");
   console.log(`[handicap] Wrote ${index} (${payload.updated})`);
