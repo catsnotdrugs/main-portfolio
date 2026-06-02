@@ -72,12 +72,21 @@ async function login() {
 }
 
 function extractHandicap(login) {
-  // The login response carries the golfer's profile. Try the obvious paths.
+  // The login response carries the golfer's profile in golfer_user.golfers[].
+  // Prefer the entry that matches the configured GHIN number; fall back to the
+  // first one.
+  const golfers = login?.golfer_user?.golfers ?? [];
+  if (golfers.length > 0) {
+    const match = golfers.find((g) => String(g.golfer_id ?? g.GolferID) === String(ghin)) ?? golfers[0];
+    if (match) {
+      console.log("[handicap] golfer record keys:", Object.keys(match).join(","));
+      const index = match.handicap_index ?? match.HandicapIndex ?? match.handicap_index_text;
+      if (index !== undefined && index !== null) return String(index);
+    }
+  }
   const candidates = [
     login?.golfer_user?.handicap_index,
-    login?.golfer_user?.HandicapIndex,
     login?.golfer?.handicap_index,
-    login?.golfers?.[0]?.handicap_index,
     login?.handicap_index,
   ];
   for (const value of candidates) {
