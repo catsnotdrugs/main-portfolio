@@ -1,0 +1,22 @@
+---
+import "../styles/global.css";
+import Playground from "../components/Playground";
+import { profile, toyObjects } from "../data/profile";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Chris Williams' surreal personal playground for interactive web experiments, digital toys, and contact."
+    />
+    <meta name="theme-color" content="#ffdc4f" />
+    <title>{profile.name} | Digital Toybox</title>
+  </head>
+  <body>
+    <Playground profile={profile} objects={toyObjects} client:load />
+  </body>
+</html>
