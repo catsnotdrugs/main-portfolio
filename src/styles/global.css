@@ -511,7 +511,7 @@ a:focus-visible {
   line-height: 0.88;
 }
 
-.signal-board {
+.personal-home {
   position: relative;
   z-index: 20;
   background:
@@ -522,16 +522,16 @@ a:focus-visible {
   padding: 4rem 1rem 3rem;
 }
 
-.signal-board-header {
+.personal-header {
   max-width: 72rem;
   margin: 0 auto;
 }
 
-.signal-kicker {
+.personal-kicker {
   color: var(--aqua);
 }
 
-.signal-board-header p:not(.kicker) {
+.personal-header p:not(.kicker) {
   max-width: 44rem;
   margin: 1rem 0 0;
   color: rgb(255 255 255 / 0.8);
@@ -540,14 +540,14 @@ a:focus-visible {
   line-height: 1.6;
 }
 
-.dashboard-grid {
+.personal-grid {
   display: grid;
   max-width: 72rem;
   margin: 2rem auto 0;
   gap: 1rem;
 }
 
-.dashboard-panel {
+.personal-panel {
   border: 2px solid rgb(255 255 255 / 0.16);
   border-radius: 8px;
   background: rgb(255 255 255 / 0.08);
@@ -578,37 +578,33 @@ a:focus-visible {
   text-transform: uppercase;
 }
 
-.note-stack {
+.now-list,
+.made-list {
   display: grid;
   gap: 0.75rem;
 }
 
-.operating-note {
+.now-item {
   display: grid;
-  grid-template-columns: 3rem minmax(0, 1fr);
-  gap: 0.85rem;
+  gap: 0.55rem;
   padding: 0.9rem;
   border: 2px solid rgb(255 255 255 / 0.12);
   border-radius: 8px;
   background: rgb(255 255 255 / 0.07);
 }
 
-.operating-note > span {
-  display: grid;
-  width: 2.4rem;
-  height: 2.4rem;
-  place-items: center;
-  border: 2px solid var(--cream);
-  border-radius: 999px;
+.now-item > p {
+  margin: 0;
   color: var(--aqua);
   font-size: 0.78rem;
   font-weight: 950;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
-.operating-note h3,
-.frequency-readout h3,
-.belief-display h3,
-.artifact-card h3,
+.now-item h3,
+.made-card h3,
+.photo-slot h3,
 .contact-panel h3 {
   margin: 0;
   font-size: clamp(1.25rem, 2.6vw, 2rem);
@@ -617,10 +613,9 @@ a:focus-visible {
   line-height: 1.02;
 }
 
-.operating-note p,
-.frequency-readout p,
-.belief-display p,
-.artifact-card p,
+.now-item > span,
+.made-card p,
+.photo-slot p,
 .contact-panel p {
   margin: 0.55rem 0 0;
   color: rgb(255 255 255 / 0.72);
@@ -628,16 +623,13 @@ a:focus-visible {
   line-height: 1.6;
 }
 
-.frequency-chips,
-.prompt-grid {
+.like-tabs {
   display: flex;
   flex-wrap: wrap;
   gap: 0.55rem;
 }
 
-.signal-chip,
-.mini-button,
-.artifact-button {
+.signal-chip {
   border: 2px solid rgb(255 255 255 / 0.22);
   border-radius: 999px;
   background: rgb(255 255 255 / 0.08);
@@ -650,17 +642,18 @@ a:focus-visible {
 }
 
 .signal-chip[aria-selected="true"],
-.signal-chip:hover,
-.mini-button:hover,
-.artifact-button[aria-pressed="true"],
-.artifact-button:hover {
+.signal-chip:hover {
   background: var(--aqua);
   border-color: var(--aqua);
   color: var(--ink);
 }
 
-.frequency-readout {
+.like-card {
+  display: flex;
   min-height: 13rem;
+  flex-wrap: wrap;
+  align-content: flex-end;
+  gap: 0.65rem;
   margin-top: 1rem;
   border: 2px solid rgb(255 255 255 / 0.14);
   border-radius: 8px;
@@ -670,81 +663,99 @@ a:focus-visible {
   padding: 1rem;
 }
 
-.belief-display {
-  min-height: 15rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  border: 3px solid var(--cream);
-  border-radius: 8px;
-  background: var(--pink);
-  box-shadow: 8px 8px 0 rgb(0 0 0 / 0.35);
-  color: var(--ink);
-  padding: 1rem;
-}
-
-.belief-display span {
-  color: rgb(37 19 49 / 0.36);
-  font-size: 4rem;
-  font-weight: 1000;
-  line-height: 0.8;
-}
-
-.belief-display p {
-  color: rgb(37 19 49 / 0.76);
-}
-
-.artifact-layout {
-  display: grid;
-  gap: 1rem;
-}
-
-.artifact-list {
-  display: grid;
-  gap: 0.5rem;
-}
-
-.artifact-button {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  border-radius: 8px;
-  text-align: left;
-}
-
-.artifact-button span {
-  width: 0.9rem;
-  height: 0.9rem;
-  flex: 0 0 auto;
-  margin-right: 0.55rem;
-  border: 1px solid var(--cream);
+.like-card span {
+  border: 2px solid rgb(255 255 255 / 0.18);
   border-radius: 999px;
+  background: rgb(255 255 255 / 0.08);
+  color: var(--cream);
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  font-weight: 950;
+  padding: 0.65rem 0.9rem;
 }
 
-.artifact-card {
-  position: relative;
-  min-height: 14rem;
-  overflow: hidden;
+.made-card {
   border: 2px solid rgb(255 255 255 / 0.14);
   border-radius: 8px;
   background: rgb(255 255 255 / 0.07);
   padding: 1rem;
 }
 
-.artifact-light {
-  position: absolute;
-  width: 11rem;
-  height: 11rem;
-  right: -4rem;
-  top: -4rem;
+.made-card > span {
+  display: inline-flex;
+  margin-bottom: 0.8rem;
   border-radius: 999px;
-  filter: blur(10px);
-  opacity: 0.4;
+  background: var(--pink);
+  color: var(--ink);
+  font-size: 0.72rem;
+  font-weight: 950;
+  letter-spacing: 0.12em;
+  padding: 0.42rem 0.65rem;
+  text-transform: uppercase;
 }
 
-.artifact-card h3,
-.artifact-card p {
-  position: relative;
+.photo-grid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.photo-slot {
+  border: 2px solid rgb(255 255 255 / 0.14);
+  border-radius: 8px;
+  background: rgb(255 255 255 / 0.07);
+  padding: 0.75rem;
+}
+
+.photo-slot > div {
+  display: grid;
+  min-height: 10rem;
+  place-items: center;
+  border: 2px dashed rgb(37 19 49 / 0.26);
+  border-radius: 8px;
+  color: rgb(37 19 49 / 0.5);
+  font-size: 0.8rem;
+  font-weight: 950;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.photo-slot h3 {
+  margin-top: 0.9rem;
+}
+
+.link-list {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.link-list a {
+  display: grid;
+  gap: 0.25rem;
+  border: 2px solid rgb(255 255 255 / 0.14);
+  border-radius: 8px;
+  background: rgb(255 255 255 / 0.07);
+  color: var(--cream);
+  padding: 0.9rem;
+  text-decoration: none;
+}
+
+.link-list a:hover {
+  background: var(--aqua);
+  color: var(--ink);
+}
+
+.link-list strong {
+  font-size: 1rem;
+  font-weight: 950;
+}
+
+.link-list span {
+  color: rgb(255 255 255 / 0.62);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.link-list a:hover span {
+  color: rgb(37 19 49 / 0.72);
 }
 
 .contact-panel {
@@ -753,20 +764,7 @@ a:focus-visible {
     rgb(255 255 255 / 0.08);
 }
 
-.prompt-grid {
-  margin-top: 1rem;
-}
-
-.prompt-grid span {
-  border: 1px solid rgb(255 255 255 / 0.2);
-  border-radius: 999px;
-  color: rgb(255 255 255 / 0.72);
-  font-size: 0.78rem;
-  font-weight: 850;
-  padding: 0.5rem 0.75rem;
-}
-
-.transmitter-link {
+.contact-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -813,37 +811,37 @@ canvas {
     grid-template-columns: minmax(0, 0.95fr) 390px;
   }
 
-  .signal-board {
+  .personal-home {
     padding: 4rem 2rem;
   }
 
-  .dashboard-grid {
+  .personal-grid {
     grid-template-columns: repeat(6, minmax(0, 1fr));
     align-items: stretch;
   }
 
-  .operating-panel {
+  .now-panel {
     grid-column: span 3;
   }
 
-  .frequency-panel {
+  .likes-panel {
     grid-column: span 3;
   }
 
-  .belief-panel {
-    grid-column: span 2;
+  .made-panel {
+    grid-column: span 3;
   }
 
-  .artifact-panel {
-    grid-column: span 4;
+  .photo-panel {
+    grid-column: span 3;
   }
 
-  .contact-panel {
+  .links-panel {
     grid-column: 2 / span 4;
   }
 
-  .artifact-layout {
-    grid-template-columns: minmax(12rem, 0.72fr) minmax(0, 1fr);
+  .photo-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -886,11 +884,11 @@ canvas {
     padding: 0 0.62rem;
   }
 
-  .signal-board {
+  .personal-home {
     padding-top: 3rem;
   }
 
-  .dashboard-panel {
+  .personal-panel {
     padding: 0.85rem;
   }
 
@@ -902,10 +900,6 @@ canvas {
     display: block;
     margin-top: 0.35rem;
     text-align: left;
-  }
-
-  .operating-note {
-    grid-template-columns: 1fr;
   }
 
   .object-button-grid {

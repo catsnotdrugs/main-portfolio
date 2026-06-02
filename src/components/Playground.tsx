@@ -1,6 +1,6 @@
 import { useState } from "react";
-import type { dashboard, ToyObject } from "../data/profile";
-import SignalBoard from "./SignalBoard";
+import type { HeroFacet, personalHome } from "../data/profile";
+import PersonalSections from "./PersonalSections";
 
 type Profile = {
   name: string;
@@ -13,22 +13,22 @@ type Profile = {
 
 type PlaygroundProps = {
   profile: Profile;
-  objects: ToyObject[];
-  dashboard: typeof dashboard;
+  facets: HeroFacet[];
+  personalHome: typeof personalHome;
 };
 
-export default function Playground({ profile, objects, dashboard }: PlaygroundProps) {
+export default function Playground({ profile, facets, personalHome }: PlaygroundProps) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [palette, setPalette] = useState<"sun" | "candy" | "night">("sun");
-  const selected = objects[selectedIndex] ?? objects[0];
+  const selected = facets[selectedIndex] ?? facets[0];
 
   const selectObject = (id: string) => {
-    const nextIndex = objects.findIndex((object) => object.id === id);
+    const nextIndex = facets.findIndex((facet) => facet.id === id);
     setSelectedIndex(nextIndex >= 0 ? nextIndex : 0);
   };
 
   const shuffleObject = () => {
-    setSelectedIndex((currentIndex) => (currentIndex + 1) % objects.length);
+    setSelectedIndex((currentIndex) => (currentIndex + 1) % facets.length);
   };
 
   return (
@@ -43,10 +43,16 @@ export default function Playground({ profile, objects, dashboard }: PlaygroundPr
             <span>CW</span>
           </a>
           <nav className="glass-panel" aria-label="Primary">
-            <a className="nav-chip" href="#signal-board">
-              Signal Board
+            <a className="nav-chip" href="#now">
+              Now
             </a>
-            <a className="nav-chip" href="#contact-transmitter">
+            <a className="nav-chip" href="#likes">
+              Likes
+            </a>
+            <a className="nav-chip" href="#made">
+              Made
+            </a>
+            <a className="nav-chip" href="#contact">
               Contact
             </a>
           </nav>
@@ -62,7 +68,7 @@ export default function Playground({ profile, objects, dashboard }: PlaygroundPr
                 Surprise me
               </button>
               <button className="console-button" type="button" onClick={shuffleObject}>
-                Next curio
+                Next thing
               </button>
             </div>
             <div className="palette-row" aria-label="Color modes">
@@ -83,7 +89,7 @@ export default function Playground({ profile, objects, dashboard }: PlaygroundPr
 
           <aside className="object-card" aria-live="polite">
             <div className="object-card-top">
-              <p className="kicker object-kicker">Selected object</p>
+              <p className="kicker object-kicker">Currently showing</p>
               <span
                 className="object-swatch"
                 style={{ background: selected?.color }}
@@ -98,7 +104,7 @@ export default function Playground({ profile, objects, dashboard }: PlaygroundPr
               </a>
             ) : null}
             <div className="object-button-grid">
-              {objects.map((object) => (
+              {facets.map((object) => (
                 <button
                   key={object.id}
                   className="object-button"
@@ -114,12 +120,12 @@ export default function Playground({ profile, objects, dashboard }: PlaygroundPr
         </section>
       </div>
 
-      <SignalBoard profile={profile} dashboard={dashboard} />
+      <PersonalSections profile={profile} personalHome={personalHome} />
     </main>
   );
 }
 
-function StaticBackdrop({ selected }: { selected?: ToyObject }) {
+function StaticBackdrop({ selected }: { selected?: HeroFacet }) {
   return (
     <div className="static-backdrop" aria-hidden="true">
       <div className="backdrop-orbit backdrop-orbit-one" />

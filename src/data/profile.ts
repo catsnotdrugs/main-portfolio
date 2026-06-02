@@ -3,160 +3,14 @@ export const profile = {
   handle: "imchriswilliams",
   email: "chris@imchriswilliams.com",
   intro:
-    "I build odd little interfaces, useful tools, and digital objects that feel like they were found behind a hidden door.",
+    "A personal homepage for the things I am into, the things I make, and the little corners of life I want to remember.",
   about:
-    "Chris is a product-minded engineer in St. Petersburg, Florida who likes turning fuzzy ideas into polished, tactile software. This site is less a resume and more a pocket universe: a place for experiments, strange UI, and the occasional useful machine.",
+    "This page is a soft launch for a more personal internet home. The specifics are placeholders for now: photos, favorites, links, places, and current obsessions can all be swapped in as they become real.",
   footer:
-    "Made as a personal playground for experiments, toys, and well-behaved weirdness.",
+    "Made as a personal homepage. Add real photos, sharper details, and new favorite things whenever the mood hits.",
 };
 
-export type OperatingNote = {
-  label: string;
-  title: string;
-  body: string;
-};
-
-export type Frequency = {
-  id: string;
-  label: string;
-  title: string;
-  body: string;
-  readout: string;
-};
-
-export type Belief = {
-  title: string;
-  body: string;
-};
-
-export type Artifact = {
-  id: string;
-  title: string;
-  type: string;
-  body: string;
-  color: string;
-};
-
-export const dashboard = {
-  operatingNotes: [
-    {
-      label: "01",
-      title: "Make the interface answer back",
-      body:
-        "A good screen should feel like it noticed you. Small reactions, clear states, and a little delight do more than decoration ever can.",
-    },
-    {
-      label: "02",
-      title: "Prototype until the idea has posture",
-      body:
-        "The first version is allowed to wobble. The important part is getting something real enough to argue with.",
-    },
-    {
-      label: "03",
-      title: "Polish is a form of respect",
-      body:
-        "Spacing, motion, copy, and empty states are not afterthoughts. They are where the product tells people it was made with care.",
-    },
-  ] satisfies OperatingNote[],
-  frequencies: [
-    {
-      id: "interfaces",
-      label: "Interfaces",
-      title: "Tactile little machines",
-      body:
-        "Buttons with weight, panels with memory, controls that make the browser feel less like a document and more like an object.",
-      readout: "Signal strength: deliciously pressable",
-    },
-    {
-      id: "tools",
-      label: "Tools",
-      title: "Useful things with a wink",
-      body:
-        "Tiny utilities, personal workflows, and software that removes friction without sanding off all the personality.",
-      readout: "Current mode: practical mischief",
-    },
-    {
-      id: "systems",
-      label: "Systems",
-      title: "The satisfying click of structure",
-      body:
-        "Naming things, connecting pieces, and finding the smallest system that lets an idea keep growing.",
-      readout: "Internal weather: organized lightning",
-    },
-    {
-      id: "curiosity",
-      label: "Curiosity",
-      title: "Open every unlabeled drawer",
-      body:
-        "The internet is better when it has hidden rooms, strange artifacts, and pages that reward poking around.",
-      readout: "Map status: incomplete on purpose",
-    },
-  ] satisfies Frequency[],
-  beliefs: [
-    {
-      title: "Useful can still be weird",
-      body:
-        "Software does not become serious by becoming sterile. A useful thing can have a pulse.",
-    },
-    {
-      title: "The hover state matters",
-      body:
-        "It is the handshake before the click. Ignore it and the whole interface feels slightly asleep.",
-    },
-    {
-      title: "Constraints are ingredients",
-      body:
-        "A small screen, a boring API, a tight deadline. Fine. Give the problem edges and it starts to become a toy.",
-    },
-    {
-      title: "Copy is interface",
-      body:
-        "The words are not labels taped onto the product. They are part of how the product behaves.",
-    },
-  ] satisfies Belief[],
-  artifacts: [
-    {
-      id: "button-lab",
-      title: "Button Lab",
-      type: "micro experiment",
-      body:
-        "A place to test how much personality can fit inside a rectangle before it becomes annoying.",
-      color: "#ff4f9a",
-    },
-    {
-      id: "pocket-console",
-      title: "Pocket Console",
-      type: "personal tool",
-      body:
-        "A pretend control surface for sorting thoughts, prompts, ideas, and tiny unfinished machines.",
-      color: "#42e8d4",
-    },
-    {
-      id: "idea-drawer",
-      title: "Idea Drawer",
-      type: "archive",
-      body:
-        "Half-formed concepts, sketches, and names waiting for the right rainy afternoon.",
-      color: "#ffb000",
-    },
-    {
-      id: "texture-radio",
-      title: "Texture Radio",
-      type: "signal",
-      body:
-        "A reminder to make digital work feel less flat: more tactility, more rhythm, more feedback.",
-      color: "#8cff6a",
-    },
-  ] satisfies Artifact[],
-  contactPrompts: [
-    "Send a strange idea",
-    "Ask about a build",
-    "Trade interface opinions",
-    "Open a tiny portal",
-  ],
-};
-
-export type ToyObject = {
+export type HeroFacet = {
   id: string;
   label: string;
   title: string;
@@ -169,54 +23,178 @@ export type ToyObject = {
   accent: string;
 };
 
-export const toyObjects: ToyObject[] = [
+export const heroFacets: HeroFacet[] = [
   {
-    id: "signal",
-    label: "Signal Shell",
-    title: "Chris Williams",
+    id: "now",
+    label: "Now",
+    title: "What has my attention right now",
     body:
-      "A product-minded engineer who likes playful systems, crisp interfaces, and the moment an idea starts to behave like a real thing.",
+      "A rotating spot for habits, tools, songs, places, ideas, and anything else that feels worth remembering this month.",
     color: "#ff4f9a",
     accent: "#ffe76a",
   },
   {
-    id: "about",
-    label: "About Meteor",
-    title: "About the Maker",
+    id: "likes",
+    label: "Likes",
+    title: "A shelf for taste",
     body:
-      "I care about details, momentum, and software with a little spark in it. The best projects feel practical and alive at the same time.",
+      "Games, interfaces, food, design details, weird websites, useful objects, good rooms, and whatever else earns a small permanent spot.",
     color: "#42e8d4",
     accent: "#6c5cff",
   },
   {
-    id: "contact",
-    label: "Contact Transmitter",
-    title: "Open a Channel",
+    id: "made",
+    label: "Made",
+    title: "Things I make sometimes",
     body:
-      "Send a note, a weird idea, a project seed, or just proof that you found this corner of the internet.",
-    cta: {
-      label: "Email Chris",
-      href: "mailto:chris@imchriswilliams.com",
-    },
+      "Software is in the mix, but not the whole story. This section is for experiments, personal tools, unfinished ideas, and small projects.",
     color: "#ffb000",
     accent: "#ff5a3d",
   },
   {
-    id: "curio",
-    label: "Pocket Curio",
-    title: "Tiny Rule",
+    id: "photos",
+    label: "Photos",
+    title: "Photos will live here later",
     body:
-      "If a button can feel like a candy machine, a spaceship panel, or a magic trick, it should at least consider the opportunity.",
+      "For now, the page leaves room for future snapshots: places, people, desks, meals, trips, and other proof-of-life pixels.",
     color: "#8cff6a",
     accent: "#1027ff",
   },
   {
-    id: "hidden",
-    label: "Hidden Button",
-    title: "You Found the Spare Switch",
+    id: "contact",
+    label: "Contact",
+    title: "Say hello",
     body:
-      "Not everything needs to explain itself immediately. Some of the best interface moments are discovered by poking around.",
+      "Email is the simplest door. Send a note, a link, a recommendation, or a half-formed idea.",
+    cta: {
+      label: "Email Chris",
+      href: "mailto:chris@imchriswilliams.com",
+    },
     color: "#f7f0ff",
     accent: "#ff4f9a",
   },
 ];
+
+export type NowItem = {
+  label: string;
+  title: string;
+  body: string;
+};
+
+export type LikeItem = {
+  category: string;
+  items: string[];
+};
+
+export type MadeThing = {
+  title: string;
+  type: string;
+  body: string;
+};
+
+export type PersonalLink = {
+  label: string;
+  href: string;
+  note: string;
+};
+
+export type PhotoSlot = {
+  title: string;
+  caption: string;
+  color: string;
+};
+
+export const personalHome = {
+  nowItems: [
+    {
+      label: "Current mood",
+      title: "Making the internet feel personal again",
+      body:
+        "Less polished profile, more lived-in homepage. A place that can change without needing a whole rebrand.",
+    },
+    {
+      label: "Open tab",
+      title: "Finding the right shape for this site",
+      body:
+        "The useful version is probably part scrapbook, part directory, part tiny museum of current taste.",
+    },
+    {
+      label: "Reminder",
+      title: "Replace these with real specifics",
+      body:
+        "Add the actual books, games, restaurants, songs, routines, tools, and photos that make this feel unmistakably yours.",
+    },
+  ] satisfies NowItem[],
+  likes: [
+    {
+      category: "Digital",
+      items: ["weird websites", "small useful tools", "game UI", "personal dashboards"],
+    },
+    {
+      category: "Offline",
+      items: ["good coffee", "walkable places", "low-key restaurants", "rooms with character"],
+    },
+    {
+      category: "Media",
+      items: ["comfort shows", "strategy games", "albums on repeat", "YouTube rabbit holes"],
+    },
+    {
+      category: "Objects",
+      items: ["well-made bags", "desk things", "notebooks", "anything with a satisfying button"],
+    },
+  ] satisfies LikeItem[],
+  madeThings: [
+    {
+      title: "Personal tools",
+      type: "software",
+      body:
+        "Small things that solve a specific annoyance, organize an idea, or make a repeated task feel less boring.",
+    },
+    {
+      title: "Web experiments",
+      type: "play",
+      body:
+        "Interfaces, layouts, and interaction ideas that are worth trying even if they do not need to become products.",
+    },
+    {
+      title: "Unfinished ideas",
+      type: "archive",
+      body:
+        "A future home for sketches, names, concepts, notes, and the projects that are still looking for their final form.",
+    },
+  ] satisfies MadeThing[],
+  links: [
+    {
+      label: "Email",
+      href: "mailto:chris@imchriswilliams.com",
+      note: "Best way to reach me.",
+    },
+    {
+      label: "GitHub",
+      href: "https://github.com/catsnotdrugs",
+      note: "Code, experiments, and public bits.",
+    },
+    {
+      label: "Handle",
+      href: "https://imchriswilliams.com",
+      note: "The web home for whatever this becomes.",
+    },
+  ] satisfies PersonalLink[],
+  photoSlots: [
+    {
+      title: "A photo of me",
+      caption: "Replace with a portrait or something more honest than a portrait.",
+      color: "#ff4f9a",
+    },
+    {
+      title: "A place I like",
+      caption: "A future spot for a favorite table, street, beach, bar, trail, or room.",
+      color: "#42e8d4",
+    },
+    {
+      title: "A current object",
+      caption: "Something from the desk, bag, kitchen, shelf, or daily routine.",
+      color: "#ffb000",
+    },
+  ] satisfies PhotoSlot[],
+};
