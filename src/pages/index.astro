@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
 import Playground from "../components/Playground";
-import { heroFacets, personalHome, profile } from "../data/profile";
+import { content, desktopApps, heroObjects, profile } from "../data/profile";
 ---
 
 <!doctype html>
@@ -11,12 +11,18 @@ import { heroFacets, personalHome, profile } from "../data/profile";
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Chris Williams' surreal personal playground for interactive web experiments, digital toys, and contact."
+      content="Chris Williams' personal homepage. Frenchies, golf, whiskey, and small things I build. Drag the toys, open the windows."
     />
-    <meta name="theme-color" content="#ffdc4f" />
+    <meta name="theme-color" content="#ffd21f" />
     <title>{profile.name} | Personal Homepage</title>
   </head>
   <body>
-    <Playground profile={profile} facets={heroFacets} personalHome={personalHome} client:load />
+    <Playground
+      profile={profile}
+      heroObjects={heroObjects}
+      desktopApps={desktopApps}
+      content={content}
+      client:load
+    />
   </body>
 </html>

@@ -1,0 +1,38 @@
+name: Update GHIN handicap
+
+on:
+  schedule:
+    # Every Monday at 13:00 UTC (09:00 ET).
+    - cron: "0 13 * * 1"
+  workflow_dispatch:
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Fetch handicap from GHIN
+        env:
+          GHIN_EMAIL: ${{ secrets.GHIN_EMAIL }}
+          GHIN_PASSWORD: ${{ secrets.GHIN_PASSWORD }}
+          GHIN_NUMBER: ${{ secrets.GHIN_NUMBER || '12459973' }}
+        run: node scripts/update-handicap.mjs
+
+      - name: Commit if the handicap changed
+        run: |
+          if [[ -n "$(git status --porcelain src/data/handicap.json)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add src/data/handicap.json
+            git commit -m "chore: refresh GHIN handicap"
+            git push
+          else
+            echo "Handicap unchanged."
+          fi
