@@ -40,10 +40,19 @@ function makeToken() {
   return Buffer.concat([cipher.update(payload, "utf8"), cipher.final()]).toString("base64");
 }
 
+const BROWSER_HEADERS = {
+  "User-Agent":
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+  "Accept": "application/json, text/plain, */*",
+  "Accept-Language": "en-US,en;q=0.9",
+  "Origin": "https://www.ghin.com",
+  "Referer": "https://www.ghin.com/",
+};
+
 async function login() {
   const res = await fetch(`${API}/golfer_login.json`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: { ...BROWSER_HEADERS, "Content-Type": "application/json" },
     body: JSON.stringify({
       user: { email_or_ghin: email, password, remember_me: false },
       token: makeToken(),
@@ -62,6 +71,7 @@ async function login() {
 async function fetchHandicap(sessionToken) {
   const res = await fetch(`${API}/golfers/${ghin}.json`, {
     headers: {
+      ...BROWSER_HEADERS,
       "Authorization": `Bearer ${sessionToken}`,
       "Content-Type": "application/json",
     },
