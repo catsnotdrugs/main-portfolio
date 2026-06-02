@@ -99,23 +99,33 @@ async function fetchHandicap(login, sessionToken) {
   const fromLogin = extractHandicap(login);
   if (fromLogin) return fromLogin;
 
-  // Fall back to the golfers/search endpoint with the session token.
-  const res = await fetch(`${API}/golfers/search.json?golfer_id=${ghin}`, {
+  // Login carries the profile but not the handicap. Hit handicap_history.
+  const res = await fetch(`${API}/golfers/${ghin}/handicap_history.json`, {
     headers: {
       ...BROWSER_HEADERS,
       "Authorization": `Bearer ${sessionToken}`,
     },
   });
-  if (!res.ok) throw new Error(`golfer-search HTTP ${res.status}`);
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`handicap_history HTTP ${res.status}: ${text.slice(0, 120)}`);
+  }
   const data = await res.json();
-  console.log("[handicap] search keys:", Object.keys(data ?? {}).join(","));
-  const golfer = data?.golfers?.[0] ?? data?.golfer ?? data;
-  const index =
-    golfer?.handicap_index ??
-    golfer?.HandicapIndex ??
-    golfer?.handicap_index_text;
-  if (index === undefined || index === null) throw new Error("no handicap_index in response");
-  return String(index);
+  console.log("[handicap] history keys:", Object.keys(data ?? {}).join(","));
+  // GHIN returns revisions in reverse chronological order with the current
+  // index on top. Try a handful of plausible field names.
+  const history = data?.handicap_revisions ?? data?.revisions ?? data?.history ?? data?.handicap_history ?? [];
+  if (Array.isArray(history) && history.length > 0) {
+    console.log("[handicap] latest revision keys:", Object.keys(history[0]).join(","));
+    const latest = history[0];
+    const index =
+      latest?.display ??
+      latest?.handicap_index ??
+      latest?.handicap_index_display ??
+      latest?.Value;
+    if (index !== undefined && index !== null) return String(index);
+  }
+  throw new Error("no handicap_index in handicap_history response");
 }
 
 const today = () => {
