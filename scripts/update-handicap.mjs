@@ -73,24 +73,22 @@ async function login() {
 
 function extractHandicap(login) {
   // The login response carries the golfer's profile in golfer_user.golfers[].
-  // Prefer the entry that matches the configured GHIN number; fall back to the
-  // first one.
+  // GHIN puts the formatted handicap display ("22.8" or "+1.2") in `display`.
   const golfers = login?.golfer_user?.golfers ?? [];
   if (golfers.length > 0) {
-    const match = golfers.find((g) => String(g.golfer_id ?? g.GolferID) === String(ghin)) ?? golfers[0];
+    const match =
+      golfers.find((g) => String(g.ghin_number ?? g.golfer_id ?? g.GolferID) === String(ghin)) ??
+      golfers[0];
     if (match) {
       console.log("[handicap] golfer record keys:", Object.keys(match).join(","));
-      const index = match.handicap_index ?? match.HandicapIndex ?? match.handicap_index_text;
-      if (index !== undefined && index !== null) return String(index);
+      console.log("[handicap] display:", match.display, "low_hi_display:", match.low_hi_display);
+      const index =
+        match.display ??
+        match.handicap_index ??
+        match.HandicapIndex ??
+        match.handicap_index_text;
+      if (index !== undefined && index !== null && index !== "") return String(index);
     }
-  }
-  const candidates = [
-    login?.golfer_user?.handicap_index,
-    login?.golfer?.handicap_index,
-    login?.handicap_index,
-  ];
-  for (const value of candidates) {
-    if (value !== undefined && value !== null) return String(value);
   }
   return null;
 }
