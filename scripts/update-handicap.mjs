@@ -62,13 +62,7 @@ async function login() {
     const text = await res.text();
     throw new Error(`login HTTP ${res.status}: ${text.slice(0, 200)}`);
   }
-  const data = await res.json();
-  // For diagnostics in CI, show the top-level shape.
-  console.log("[handicap] login keys:", Object.keys(data ?? {}).join(","));
-  if (data?.golfer_user) {
-    console.log("[handicap] golfer_user keys:", Object.keys(data.golfer_user).join(","));
-  }
-  return data;
+  return res.json();
 }
 
 function extractHandicap(login) {
@@ -80,8 +74,6 @@ function extractHandicap(login) {
       golfers.find((g) => String(g.ghin_number ?? g.golfer_id ?? g.GolferID) === String(ghin)) ??
       golfers[0];
     if (match) {
-      console.log("[handicap] golfer record keys:", Object.keys(match).join(","));
-      console.log("[handicap] display:", match.display, "low_hi_display:", match.low_hi_display);
       const index =
         match.display ??
         match.handicap_index ??
@@ -109,12 +101,9 @@ async function fetchHandicap(login, sessionToken) {
     throw new Error(`handicap_history HTTP ${res.status}: ${text.slice(0, 120)}`);
   }
   const data = await res.json();
-  console.log("[handicap] history keys:", Object.keys(data ?? {}).join(","));
-  // GHIN returns revisions in reverse chronological order with the current
-  // index on top. Try a handful of plausible field names.
+  // Revisions arrive newest first. Pluck the top one's display value.
   const history = data?.handicap_revisions ?? data?.revisions ?? data?.history ?? data?.handicap_history ?? [];
   if (Array.isArray(history) && history.length > 0) {
-    console.log("[handicap] latest revision keys:", Object.keys(history[0]).join(","));
     const latest = history[0];
     const index =
       latest?.display ??
