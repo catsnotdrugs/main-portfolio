@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
 import Playground from "../components/Playground";
-import { profile, toyObjects } from "../data/profile";
+import { dashboard, profile, toyObjects } from "../data/profile";
 ---
 
 <!doctype html>
@@ -17,6 +17,6 @@ import { profile, toyObjects } from "../data/profile";
     <title>{profile.name} | Digital Toybox</title>
   </head>
   <body>
-    <Playground profile={profile} objects={toyObjects} client:load />
+    <Playground profile={profile} objects={toyObjects} dashboard={dashboard} client:load />
   </body>
 </html>

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import type { ToyObject } from "../data/profile";
-import FallbackWorld from "./FallbackWorld";
+import type { dashboard, ToyObject } from "../data/profile";
+import SignalBoard from "./SignalBoard";
 
 type Profile = {
   name: string;
@@ -14,9 +14,10 @@ type Profile = {
 type PlaygroundProps = {
   profile: Profile;
   objects: ToyObject[];
+  dashboard: typeof dashboard;
 };
 
-export default function Playground({ profile, objects }: PlaygroundProps) {
+export default function Playground({ profile, objects, dashboard }: PlaygroundProps) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [palette, setPalette] = useState<"sun" | "candy" | "night">("sun");
   const selected = objects[selectedIndex] ?? objects[0];
@@ -42,10 +43,10 @@ export default function Playground({ profile, objects }: PlaygroundProps) {
             <span>CW</span>
           </a>
           <nav className="glass-panel" aria-label="Primary">
-            <a className="nav-chip" href="#about">
-              About
+            <a className="nav-chip" href="#signal-board">
+              Signal Board
             </a>
-            <a className="nav-chip" href={`mailto:${profile.email}`}>
+            <a className="nav-chip" href="#contact-transmitter">
               Contact
             </a>
           </nav>
@@ -113,7 +114,7 @@ export default function Playground({ profile, objects }: PlaygroundProps) {
         </section>
       </div>
 
-      <FallbackWorld profile={profile} objects={objects} />
+      <SignalBoard profile={profile} dashboard={dashboard} />
     </main>
   );
 }
